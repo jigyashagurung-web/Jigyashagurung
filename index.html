@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jigyasha Gurung — Senior Project Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0f;
+    --paper: #f5f0e8;
+    --accent: #c8622a;
+    --muted: #7a6f62;
+    --line: #d9d0c4;
+    --white: #fdfcfa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--white);
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: 'JG';
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 280px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .tag {
+    background: rgba(200,98,42,0.2);
+    border: 1px solid rgba(200,98,42,0.5);
+    color: #e89070;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-bottom: 36px;
+    letter-spacing: 0.01em;
+  }
+
+  .contact-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 28px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-item:hover { color: #e89070; }
+
+  .contact-item svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 60px 80px;
+  }
+
+  /* ── SECTION ── */
+  section {
+    padding-top: 64px;
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  section:first-child { margin-top: 0; border-top: none; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ── PROFILE ── */
+  .profile-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 740px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-chip {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink);
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .skill-chip:hover {
+    border-color: var(--accent);
+    background: #fff8f4;
+  }
+
+  .key-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .key-skill-card {
+    background: var(--white);
+    border-left: 3px solid var(--accent);
+    padding: 18px 20px;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .key-skill-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .key-skill-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── EXPERIENCE ── */
+  .job {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 52px;
+  }
+
+  .job::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .job::after {
+    content: '';
+    position: absolute;
+    left: 3.5px;
+    top: 18px;
+    width: 1px;
+    bottom: -40px;
+    background: var(--line);
+  }
+
+  .job:last-child::after { display: none; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .job-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .job-date {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: rgba(200,98,42,0.1);
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .job-company {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .job-company .sep { opacity: 0.4; }
+
+  .job ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .job li {
+    font-size: 14px;
+    color: #444;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .job li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.6;
+    font-size: 12px;
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  .edu-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 20px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .edu-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(200,98,42,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  .edu-title { font-weight: 500; font-size: 15px; }
+  .edu-sub { font-size: 12px; color: var(--muted); }
+
+  /* ── AIMS ── */
+  .aims-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .aim-item {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .aim-item:hover { border-color: var(--accent); }
+
+  /* ── INTERESTS ── */
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .interest-pill {
+    background: var(--ink);
+    color: var(--white);
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 28px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header { padding: 50px 24px 40px; }
+    .page { padding: 0 24px 60px; }
+    .aims-grid { grid-template-columns: 1fr; }
+    header::before { font-size: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="tag-row">
+      <span class="tag">PMP Certified</span>
+      <span class="tag">Registered Scrum Master</span>
+      <span class="tag">Lean Six Sigma Foundation</span>
+      <span class="tag">AI in Project Management — PMI</span>
+      <span class="tag">Change Management</span>
+    </div>
+    <h1>Jigyasha<br>Gurung</h1>
+    <p class="subtitle">Senior Project Manager &nbsp;·&nbsp; Kathmandu, Nepal</p>
+    <div class="contact-strip">
+      <a href="tel:9803087159" class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +977 9803087159
+      </a>
+      <a href="mailto:jigyashagurung@gmail.com" class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        jigyashagurung@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/jigyashagurung" target="_blank" class="contact-item">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/jigyashagurung
+      </a>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Banasthali, Kathmandu
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE BODY -->
+<div class="page">
+
+  <!-- PROFILE -->
+  <section style="animation-delay:0.1s; margin-top:60px; border-top:none; padding-top:60px;">
+    <p class="section-label">Profile</p>
+    <p class="profile-text">Well-accomplished project leader with proven experience managing a portfolio of CRM and ERP projects and steering high-performing teams. Excels at overseeing complex projects, ensuring timely delivery and adherence to budget constraints. Adept at strategic lifecycle management, aligning team efforts with organisational objectives, and fostering stakeholder relationships that drive operational excellence. A solutions driver who bridges the gap between business and technology — coordinating across disciplines and delivering robust, high-quality systems that solve real business problems.</p>
+  </section>
+
+  <!-- KEY SKILLS -->
+  <section style="animation-delay:0.2s;">
+    <p class="section-label">Key Skills</p>
+    <div class="key-skills">
+      <div class="key-skill-card">
+        <h4>Azure DevOps</h4>
+        <p>Skilled in task management and report creation within Azure DevOps environments.</p>
+      </div>
+      <div class="key-skill-card">
+        <h4>Team Leadership</h4>
+        <p>Demonstrated leadership in building and steering cross-functional teams for operational improvement.</p>
+      </div>
+      <div class="key-skill-card">
+        <h4>Process Improvement</h4>
+        <p>Advising on PM best practices with a focus on business process optimisation.</p>
+      </div>
+    </div>
+    <p class="section-label" style="margin-top:32px;">Core Competencies</p>
+    <div class="skills-grid">
+      <div class="skill-chip">Microsoft Project Plan</div>
+      <div class="skill-chip">Project Management</div>
+      <div class="skill-chip">Stakeholder Engagement</div>
+      <div class="skill-chip">Budget Management</div>
+      <div class="skill-chip">Strategic Planning</div>
+      <div class="skill-chip">Lifecycle Management</div>
+      <div class="skill-chip">Risk Mitigation</div>
+      <div class="skill-chip">Cross-Functional Coordination</div>
+      <div class="skill-chip">Quality Assurance</div>
+      <div class="skill-chip">Timeline Management</div>
+      <div class="skill-chip">Process Improvement</div>
+      <div class="skill-chip">Decision Making</div>
+      <div class="skill-chip">User Acceptance Testing</div>
+      <div class="skill-chip">Negotiation</div>
+      <div class="skill-chip">Dynamics 365 Projects</div>
+      <div class="skill-chip">Problem Solving</div>
+      <div class="skill-chip">Azure DevOps</div>
+      <div class="skill-chip">Jira</div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section style="animation-delay:0.3s;">
+    <p class="section-label">Employment History</p>
+
+    <!-- Senior PM -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Senior Project Manager</div>
+        <div class="job-date">Aug 2025 — Present</div>
+      </div>
+      <div class="job-company">Viveka Health Services <span class="sep">·</span> Kathmandu, Nepal</div>
+      <ul>
+        <li>Enhanced team productivity through a performance dashboard initiative.</li>
+        <li>Ensured 100% Definition of Done compliance across teams, reducing UAT and production defects.</li>
+        <li>Improved agile maturity through coaching and process stabilisation.</li>
+        <li>Optimised Jira workflow to enhance delivery efficiency.</li>
+        <li>Introduced a Risk Register to mitigate risks before they became blockers.</li>
+      </ul>
+    </div>
+
+    <!-- Head of PMD -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Head of Project Management Department</div>
+        <div class="job-date">Aug 2023 — Dec 2024</div>
+      </div>
+      <div class="job-company">Dogma Group (Microsoft Gold Partner) <span class="sep">·</span> Kathmandu, Nepal</div>
+      <ul>
+        <li>Led an enterprise PMO supporting a portfolio of £15 million across 25–30 projects.</li>
+        <li>Built and trained a team of 15+ project managers to manage diverse Microsoft D365 projects.</li>
+        <li>Established project governance framework, improving resource management, visibility and stakeholder engagement.</li>
+        <li>Conducted regular training sessions on PM tools and organisational processes.</li>
+        <li>Weekly project health checks and risk assessments helped reduce project delays.</li>
+        <li>Created and delivered project management reports to senior management.</li>
+      </ul>
+    </div>
+
+    <!-- Lead PM -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Lead Project Manager</div>
+        <div class="job-date">Nov 2022 — Aug 2023</div>
+      </div>
+      <div class="job-company">Dogma Group (Microsoft Gold Partner) <span class="sep">·</span> Kathmandu, Nepal</div>
+      <ul>
+        <li>Directed full lifecycle delivery of multiple Dynamics 365 projects with budgets from £80k to £300k.</li>
+        <li>Managed cross-functional teams with focus on scope, timelines, budgets and quality.</li>
+        <li>Maintained RAID logs, analysing and consulting on risk management strategies.</li>
+        <li>Successfully delivered projects on time and within budget, generating referral projects from existing clients.</li>
+        <li>Facilitated daily scrum sessions and managed change through a change control process.</li>
+      </ul>
+    </div>
+
+    <!-- PM -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Project Manager</div>
+        <div class="job-date">Jun 2020 — Nov 2022</div>
+      </div>
+      <div class="job-company">Dogma Group (Microsoft Gold Partner) <span class="sep">·</span> Kathmandu, Nepal</div>
+      <ul>
+        <li>Executed multiple projects from start to finish within budgets of £60k to £150k.</li>
+        <li>Orchestrated project scoping workshops, risk analysis and defined deliverables.</li>
+        <li>Administered project plans in DevOps, allocating resources and overseeing milestones.</li>
+        <li>Managed RAID logs with stakeholders, ensuring timely escalation and resolution.</li>
+        <li>Facilitated daily scrum meetings, assessing tasks and progress with consultants.</li>
+      </ul>
+    </div>
+
+    <!-- PMO Analyst -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">PMO Analyst</div>
+        <div class="job-date">Aug 2018 — Jun 2020</div>
+      </div>
+      <div class="job-company">Hidden Brains Infotech <span class="sep">·</span> Ahmedabad, India</div>
+      <ul>
+        <li>Tracked progress across a portfolio of 25+ fixed-cost and 15+ T&M projects.</li>
+        <li>Developed and maintained project dashboards and reports for senior management.</li>
+        <li>Co-created PMO best practices and assisted in implementation.</li>
+        <li>Conducted early risk assessments and facilitated mitigation strategies.</li>
+        <li>Organised and led PMO meetings, documenting and following up on action items.</li>
+      </ul>
+    </div>
+
+    <!-- CAM -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Client Account Manager</div>
+        <div class="job-date">Jan 2017 — Jul 2018</div>
+      </div>
+      <div class="job-company">Hidden Brains Infotech / Configure IT <span class="sep">·</span> Ahmedabad, India</div>
+      <ul>
+        <li>Managed a portfolio of 10+ client accounts, ensuring high satisfaction and retention.</li>
+        <li>Collaborated with product, sales, and marketing teams to align client needs with offerings.</li>
+        <li>Conducted regular account reviews and gathered client feedback.</li>
+      </ul>
+    </div>
+
+    <!-- Support + Trainee + Intern -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Support Team Member</div>
+        <div class="job-date">Jan 2016 — Dec 2016</div>
+      </div>
+      <div class="job-company">Hidden Brains Infotech / Configure IT <span class="sep">·</span> Ahmedabad, India</div>
+      <ul>
+        <li>Onboarded new clients, provided customer service, and resolved issues promptly.</li>
+        <li>Gathered client feedback and documented insights for product improvement.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Trainee</div>
+        <div class="job-date">Aug 2015 — Dec 2016</div>
+      </div>
+      <div class="job-company">Hidden Brains Infotech <span class="sep">·</span> Ahmedabad, India</div>
+      <ul>
+        <li>Functional and non-functional requirement gathering for mobile and web applications.</li>
+        <li>Created use-case diagrams, functional diagrams, ER diagrams, and wireframes.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Intern</div>
+        <div class="job-date">Jan 2015 — Mar 2015</div>
+      </div>
+      <div class="job-company">ITC Infotech <span class="sep">·</span> Bangalore, India</div>
+      <ul>
+        <li>Developed an IoT application to connect objects to the internet using the ThingWorx platform.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+  <section style="animation-delay:0.4s;">
+    <p class="section-label">Education &amp; Certifications</p>
+    <div class="edu-row">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-title">Bachelor of Computer Science &amp; Engineering</div>
+        <div class="edu-sub">2015</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-icon">📋</div>
+      <div>
+        <div class="edu-title">PMP — Project Management Professional</div>
+        <div class="edu-sub">Project Management Institute (PMI)</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-icon">🔄</div>
+      <div>
+        <div class="edu-title">Registered Scrum Master</div>
+        <div class="edu-sub">Scrum Alliance</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-icon">⚙️</div>
+      <div>
+        <div class="edu-title">Lean Six Sigma Foundation</div>
+        <div class="edu-sub">Process &amp; Quality Management</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-icon">🤖</div>
+      <div>
+        <div class="edu-title">AI in Project Management</div>
+        <div class="edu-sub">Project Management Institute (PMI)</div>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-icon">🔧</div>
+      <div>
+        <div class="edu-title">Change Management for Projects</div>
+        <div class="edu-sub">Stakeholder &amp; Organisational Change</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL AIMS -->
+  <section style="animation-delay:0.5s;">
+    <p class="section-label">Personal Aims</p>
+    <div class="aims-grid">
+      <div class="aim-item">Ensure every project is delivered successfully — on time, within budget, and to quality standards.</div>
+      <div class="aim-item">Work effectively as a team to create growth, success, and achieve shared targets.</div>
+      <div class="aim-item">Foster a collaborative environment where people feel motivated and empowered.</div>
+      <div class="aim-item">Think logically, proactively, and laterally to resolve unexpected problems quickly.</div>
+      <div class="aim-item" style="grid-column: 1 / -1;">Apply extensive experience managing diverse project portfolios to make informed, strategic decisions in future roles.</div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section style="animation-delay:0.6s;">
+    <p class="section-label">Interests &amp; Hobbies</p>
+    <div class="interests">
+      <span class="interest-pill">✍️ LinkedIn Content Writing</span>
+      <span class="interest-pill">📚 Reading Books</span>
+      <span class="interest-pill">🏓 Table Tennis</span>
+      <span class="interest-pill">🚀 Project Management</span>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2025 Jigyasha Gurung &nbsp;·&nbsp; Senior Project Manager &nbsp;·&nbsp; Kathmandu, Nepal
+</footer>
+
+</body>
+</html>
