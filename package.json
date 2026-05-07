@@ -1,0 +1,13 @@
+{
+  "name": "jigyasha-portfolio",
+  "version": "1.0.0",
+  "description": "Jigyasha Gurung — Senior Project Manager portfolio",
+  "scripts": {
+    "start": "live-server --open=index.html",
+    "serve": "serve ."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.3"
+  }
+}
